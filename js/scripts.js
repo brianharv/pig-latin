@@ -15,18 +15,24 @@ function pigLatin(word) {
   }
 }
 
+function sentenceSend(sentence) {
+    let array = sentence.split(" ");
+    let newArray = [];
+    array.forEach(function(element) {
+    newArray.push(pigLatin(element));
+    });
+    return newArray.join(" ") + ".";
+}
 
 // Interface
 $(document).ready(function() {
   $("#formOne").submit(function(event) {
     event.preventDefault();
-  let word = $("input#userInput").val();
-  alert(pigLatin(word));
-  $(".form-output").text(word);
+  let sentence = $("input#userInput").val();
+  alert(sentenceSend(sentence));
+  $(".form-output").text(sentenceSend(sentence));
   });
 }); 
-
-
 
 /* 
 For words beginning with a vowel, add "way" to the end.
